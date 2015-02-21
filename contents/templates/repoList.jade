@@ -1,8 +1,13 @@
+h1= title
+hr
 each item in items
-    div.row 
-        div.six.columns
-            a(href="#", onClick='repoView("' + item.full_name + '")')
-                = item.full_name
-        div.six.columns
-            = item.open_issues
-            |  issues
+    a(href="#", onClick='repoView("' + item.full_name + '")')
+        div(onmouseover='highlighton(this)', onmouseout='highlightoff(this)').row
+            div.six.columns
+                = item.name
+                br
+                img(src=item.owner.avatar_url, width=50, height=50, style='vertical-align: middle;')
+                = "    " + item.owner.login
+            div(style='text-align: right').six.columns
+                = item.open_issues
+                |  issues
