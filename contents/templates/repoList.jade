@@ -4,10 +4,13 @@ each item in items
     a(href="#", onClick='repoView("' + item.full_name + '")')
         div(onmouseover='highlighton(this)', onmouseout='highlightoff(this)').row
             div.six.columns
-                = item.name
+                strong= item.name
                 br
                 img(src=item.owner.avatar_url, width=50, height=50, style='vertical-align: middle;')
                 = "    " + item.owner.login
             div(style='text-align: right').six.columns
                 = item.open_issues
                 |  issues
+                br
+                = item.watchers_count
+                |  watchers
