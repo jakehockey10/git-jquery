@@ -1,1 +1,31 @@
-h5= item.full_name
+a(href=item.html_url)
+    h1= item.name
+hr
+dl
+    dt
+        strong Description
+    dd= item.description == '' ? '(empty)' : item.description
+img(src=item.owner.avatar_url, width=50, height=50, style='vertical-align: middle;')
+= "    " + item.owner.login
+br
+small= "Created: " + new Date(item.created_at).toDateString()
+hr
+table
+    thead
+        tr
+            th Forks
+            th Watchers
+            th Stargazers
+            th Open Issues
+            th Has Wiki
+            th Has Pages
+            th Last Event
+    tbody
+        tr
+            td(style='text-align: center;')= item.forks_count
+            td(style='text-align: center;')= item.watchers_count
+            td(style='text-align: center;')= item.stargazers_count
+            td(style='text-align: center;')= item.open_issues
+            td(style='text-align: center;')= item.has_wiki
+            td(style='text-align: center;')= item.has_pages
+            td(style='text-align: center;')= new Date(item.updated_at).toDateString()
